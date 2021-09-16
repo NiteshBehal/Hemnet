@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Hemnet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_text">Hemnet operates the leading property platform in Sweden. We emerged as an industry initiative in 1998 and has since then transformed into a "win-win" value proposition for the housing market. By offering a unique combination of relevant products, insights and inspiration, Hemnet has built lasting relationships with buyers, sellers and real estate agents for more than 20 years. We share a mutual passion for homes with our stakeholders, and are driven by being an independent and obvious place for people to turn to with the various needs for housing that arise throughout life.</string>
+    <string name="no_favourite_item_available">No Favourite Item Available</string>
+    <string name="beg_rt_pris">Begärt pris</string>
+    <string name="boarea">Boarea</string>
+    <string name="antal_rum">Antal rum</string>
+    <string name="dagar">Dagar</string>
+</resources>
