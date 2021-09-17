@@ -7,7 +7,7 @@ Architectural Pattern: MVVM + Repository Pattern Feature Coverage:
 
 Features Covered
 
-1) Property List (Property and Area Type)
+1) Property List (Property, Highlighted Property and Area Type)
 2) Property Detail Page
 3) Favourite Property List
 4) Favourite / UnFavourite Property
