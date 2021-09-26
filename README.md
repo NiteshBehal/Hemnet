@@ -38,7 +38,7 @@ TechStack Used:
 
 • Coroutines: To handle threading.
 
-• LiveData and Flows: To keep persistent and upto date data.
+• LiveData: To keep persistent and upto date data.
 
 • Room DB: To implement offline cache of data.
 
