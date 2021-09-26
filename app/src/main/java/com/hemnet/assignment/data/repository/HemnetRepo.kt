@@ -1,9 +1,13 @@
 package com.hemnet.assignment.data.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
 import com.hemnet.assignment.data.db.PropertyDb
 import com.hemnet.assignment.data.models.Property
 import com.hemnet.assignment.data.network.PropertyListApiMock
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -17,19 +21,22 @@ import javax.inject.Inject
  *
  */
 class HemnetRepo @Inject constructor(
-    val apiMock: PropertyListApiMock,
-    val db: PropertyDb
+    private val apiMock: PropertyListApiMock,
+    private val db: PropertyDb
 ) {
-    suspend fun getPropertyListData(): Flow<List<Property>> {
-        if (db.propertyDao().getPropertiesCount() == 0) {
-            apiMock.getPropertyList()?.items?.let {
-                db.propertyDao().insertAll(it)
+
+    val getPropertyListData = liveData {
+        emitSource(db.propertyDao().getAllProperties())
+        withContext(Dispatchers.IO) {
+            if (db.propertyDao().getPropertiesCount() == 0) {
+                apiMock.getPropertyList()?.items?.let {
+                    db.propertyDao().insertAll(it)
+                }
             }
         }
-        return db.propertyDao().getAllProperties()
     }
 
-    fun getPropertyDetails(id: String): Flow<Property> {
+    fun getPropertyDetails(id: String): LiveData<Property> {
         return db.propertyDao().getPropertyDetails(id)
     }
 
@@ -37,7 +44,7 @@ class HemnetRepo @Inject constructor(
         db.propertyDao().toggleFavourite(selectedPropertyId, fav)
     }
 
-    fun getFavouriteProperties(): Flow<List<Property>> {
+    fun getFavouriteProperties(): LiveData<List<Property>> {
         return db.propertyDao().getFavouriteProperties()
     }
 }

@@ -14,11 +14,7 @@ class FavouriteFragmentVM @Inject constructor(val repo: HemnetRepo) :
     /**
      * livedata to hold Favourite Properties list data for ui
      */
-    val favouriteList = liveData(Dispatchers.IO) {
-        repo.getFavouriteProperties().collectLatest {
-            emit(it)
-        }
-    }
+    val favouriteList = repo.getFavouriteProperties()
 
     /**
      * Method to toggle Favourite status for properties

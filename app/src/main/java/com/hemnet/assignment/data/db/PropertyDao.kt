@@ -1,5 +1,6 @@
 package com.hemnet.assignment.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -17,17 +18,17 @@ interface PropertyDao {
     suspend fun insertAll(users: List<Property>)
 
     @Query("SELECT * FROM property order by _id")
-    fun getAllProperties(): Flow<List<Property>>
+    fun getAllProperties(): LiveData<List<Property>>
 
     @Query("SELECT * FROM property where id = :id")
-    fun getPropertyDetails(id: String): Flow<Property>
+    fun getPropertyDetails(id: String): LiveData<Property>
 
     @Query("SELECT count(*) FROM property")
-    suspend fun getPropertiesCount(): Int
+    fun getPropertiesCount(): Int
 
     @Query("UPDATE property SET isFav=:isFav WHERE id = :id")
     suspend fun toggleFavourite(id: String, isFav: Boolean): Int
 
     @Query("SELECT * FROM property where isFav = 1")
-    fun getFavouriteProperties(): Flow<List<Property>>
+    fun getFavouriteProperties(): LiveData<List<Property>>
 }

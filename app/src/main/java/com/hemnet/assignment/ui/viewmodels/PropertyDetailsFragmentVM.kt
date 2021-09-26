@@ -18,12 +18,7 @@ class PropertyDetailsFragmentVM @Inject constructor(val repo: HemnetRepo) :
      * Method to fetch property details from db on user selection
      */
     fun propertyDetails(id: String): LiveData<Property> {
-        val liveData = liveData(Dispatchers.IO) {
-            repo.getPropertyDetails(id).collectLatest {
-                emit(it)
-            }
-        }
-        return liveData
+        return repo.getPropertyDetails(id)
     }
     /**
      * Method to toggle Favourite status for properties
