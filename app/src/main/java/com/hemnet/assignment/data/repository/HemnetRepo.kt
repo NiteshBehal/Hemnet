@@ -6,7 +6,6 @@ import com.hemnet.assignment.data.db.PropertyDb
 import com.hemnet.assignment.data.models.Property
 import com.hemnet.assignment.data.network.PropertyListApiMock
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

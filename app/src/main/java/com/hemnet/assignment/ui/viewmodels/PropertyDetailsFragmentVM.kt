@@ -2,12 +2,10 @@ package com.hemnet.assignment.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.hemnet.assignment.data.models.Property
 import com.hemnet.assignment.data.repository.HemnetRepo
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

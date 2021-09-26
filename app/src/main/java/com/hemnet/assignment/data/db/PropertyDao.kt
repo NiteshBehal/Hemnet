@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.hemnet.assignment.data.models.Property
-import kotlinx.coroutines.flow.Flow
 
 /**
  * Data Access Object for Room DB.
